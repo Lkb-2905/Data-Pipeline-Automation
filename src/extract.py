@@ -12,7 +12,7 @@ def extract_data(out_dir):
     api_file = os.path.join(out_dir, "api_reference_machines.json")
     machines = {
         'machine_id': [f"MCH-{str(i).zfill(3)}" for i in range(1, 21)],
-        'site_location': np.random.choice(['Nanterre', 'La Défense', 'Pau', 'Le Havre', 'Donges'], size=20),
+        'site_location': np.random.choice(['Douala', 'Yaoundé', 'Ngaoundéré', 'Bélabo', 'Edéa'], size=20),
         'installation_year': np.random.randint(2010, 2023, size=20)
     }
     pd.DataFrame(machines).to_json(api_file, orient='records', indent=4)
