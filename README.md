@@ -212,7 +212,7 @@ Ingénieur Logiciel & Data Scientist en devenir | Étudiant ESIEA
 🐙 GitHub : @Lkb-2905  
 
 🙏 **REMERCIEMENTS**
-* **TotalEnergies / Bolloré :** Pour l'approche industrielle robuste Data Management.
+* **Camrail / Bolloré Logistics :** Pour l'approche industrielle robuste Data Management.
 * **ESIEA :** Pour l'excellence informatique et académique.
 
 ⭐ Si ce projet vous semble pertinent pour la Supply Chain de demain, laissez une étoile !  
