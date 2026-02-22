@@ -1,51 +1,78 @@
-# 🚂 Freight Data Pipeline Automation V1.0
-🌍 Camrail / Bolloré Logistics Data Engineering Project
-![Python](https://img.shields.io/badge/Python-3.12-blue) ![SQLite](https://img.shields.io/badge/SQLite-Data_Warehouse-lightgrey) ![Pandas](https://img.shields.io/badge/Pandas-Transformation-green)
+🌍 DOSSIER DE CONFIGURATION D'EXPLOITATION (DCE)
+⚡ DPA : Data Pipeline Automation
+Python SQLite Pandas ETL License
 
-**Version:** 1.0.0 Stable | **Date:** Février 2026  
-**Auteur:** KAMENI TCHOUATCHEU GAETAN BRUNEL  
+Version: 1.0.0 Stable | Date: Février 2026
+Auteur: KAMENI TCHOUATCHEU GAETAN BRUNEL
+Contact: gaetanbrunel.kamenitchouatcheu@et.esiea.fr
 
----
+🚀 Démarrage Rapide • 📚 Documentation • 🎯 Fonctionnalités • 🔧 Installation
 
-## 🎯 VUE D'ENSEMBLE DU PROJET
+📋 TABLE DES MATIÈRES
+Vue d'ensemble du projet
+Architecture Technique
+Stack Technologique
+Fonctionnalités Clés
+Démarrage Rapide
+Guide d'Utilisation
+Qualité & Best Practices
+Roadmap & Évolutions
 
-Ce projet illustre de solides compétences en **Ingénierie des Données (Data Engineering)** en automatisant le traitement quotidien des flux logistiques de fret (locomotives, marchandises, incidents en gare).
+🎯 VUE D'ENSEMBLE DU PROJET
+Contexte & Objectifs
+Ce projet illustre de solides compétences en Ingénierie des Données (Data Engineering) en automatisant le traitement quotidien des flux logistiques de fret (Camrail / Bolloré Logistics). Il organise les données sur les locomotives, les marchandises et les incidents en gare au sein d'un entrepôt central.
 
-✅ **ETL Architecture :** Modèle complet (Extraction, Transformation, Chargement).
-✅ **Data Warehouse :** Alimentation transactionnelle d'une base de données SQLite3.
-✅ **Automatisation O.S :** Préparation pour la mise en tâche planifiée Windows (Task Scheduler).
+✅ ETL Architecture : Modèle complet d'Extraction, Transformation et Chargement.
+✅ Data Warehouse : Alimentation transactionnelle d'une base de données SQLite3.
+✅ Automatisation O.S : Exécution orchestrée par scripts Windows.
+✅ Data Quality : Gouvernance IT et normalisation.
 
-| Aspect | Démonstration |
-| :--- | :--- |
-| **Gouvernance IT** | Consolidation des données dispersées vers une base relationnelle. |
-| **Scalabilité** | Scripts séparés (`extract.py`, `transform.py`, `load.py`). |
-| **Fiabilité** | Exécution orchestrée supportant la gestion d'exceptions globale. |
-| **Business Value** | KPI calculés (Alertes logistiques, Volume par gare). |
+Pourquoi ce projet ?
+Aspect | Démonstration
+--- | ---
+Gouvernance IT | Consolidation des fichiers dispersés en une Base Unique.
+Scalabilité | Pipeline séparé en couches autonomes.
+Fiabilité | Gestion globale des exceptions lors du chargement.
+Business Value | Permet l'analyse avancée des KPIs logistiques.
 
----
+🏗️ ARCHITECTURE TECHNIQUE
+Diagramme de Flux
+Flux de Données Détaillé
+1. Layer Extraction (`extract.py`) : Connexion API/JSON simulée pour rapatrier les sources.
+2. Layer Transformation (`transform.py`) : Normalisation des horodatages et jointures en Pandas.
+3. Layer Loading (`load.py`) : Upserts dans la base de données SQL.
+4. Orchestration (`main_pipeline.py`) : Script exécutant de manière séquentielle le pipeline.
 
-## 🏗️ ARCHITECTURE DU PIPELINE
+🛠️ STACK TECHNOLOGIQUE
+Technologies Core
+Composant | Technologie | Version | Justification Technique
+--- | --- | --- | ---
+Langage | Python | 3.12+ | Standard pour les pipelines data.
+SGBD | SQLite | 3 | DWH en fichier local simplifié.
+ORM | SQLAlchemy | Latest | Mapper Python-SQL sécurisé.
+Data Processing | Pandas | Latest | Nettoyage de grandes volumétries en RAM.
 
-1. **Layer: Extraction** (`extract.py`)
-   * Connexion simulée au Référentiel Machines (API/JSON).
-   * Récupération des transactions de fret journalier.
-2. **Layer: Transformation** (`transform.py`)
-   * Normalisation des dates et jointure (Merge) des tables de faits/dimensions.
-   * Agrégation analytique par gare de triage.
-3. **Layer: Loading** (`load.py` & `main_pipeline.py`)
-   * Chargement par lot via SQLAlchemy dans `supply_chain_dwh.sqlite`.
+🎯 FONCTIONNALITÉS CLÉS
+🚀 Fonctionnalités Principales
+Data Pipeline Robuste
+Création stricte du fichier `supply_chain_dwh.sqlite`.
+Requêtage de haut niveau
+Table de faits propre permettant la réalisation de dashboards.
 
----
+🛡️ Sécurité & Robustesse
+Résilience : Gestion des transactions SQL (Rollbacks en cas d'erreur).
 
-## 🚀 DÉMARRAGE RAPIDE
+🚀 DÉMARRAGE RAPIDE
+Prérequis
+Python (v3.12+)
 
+Installation Rapide
 ```bash
 # 1. Naviguer dans le dossier du projet
 cd Data-Pipeline-Automation
 
-# 2. Créer l'environnement (Ajustement Pyenv Windows MSYS2)
-Remove-Item -Recurse -Force env -ErrorAction SilentlyContinue
-C:\Users\pc\.pyenv\pyenv-win\versions\3.12.10\python.exe -m venv env
+# 2. Créer l'environnement
+python -m venv env
 .\env\Scripts\activate
 
 # 3. Installer les dépendances
@@ -55,13 +82,32 @@ pip install -r requirements.txt
 python src/main_pipeline.py
 ```
 
-Le fichier `database/supply_chain_dwh.sqlite` sera généré, regorgeant des tables de faits propres.
+📖 GUIDE D'UTILISATION
+Exécution Routine
+Le fichier `database/supply_chain_dwh.sqlite` est généré, prêt. Le fichier `sql/advanced_queries.sql` met en valeur des requêtes SQL avancées avec les fenêtres temporelles.
 
----
+📸 Aperçu de l'Exécution
+![Exécution du Pipeline ETL](execution_screenshot.png)
 
-## 📖 REQUÊTAGE ET AUTOMATISATION
+✨ QUALITÉ & BEST PRACTICES
+Standards de Code
+Modularité : Code séparé. SSOT dans la BDD centrale.
 
-Le fichier `sql/advanced_queries.sql` met en valeur des requêtes SQL avancées avec les fenêtres temporelles analytiques (Window Functions `LAG()`, `OVER()`) pour classer la fiabilité des Hubs.
-Le script `automate_etl.ps1` sert au déploiement de routine nocturne sur serveur de production.
+🗺️ ROADMAP & ÉVOLUTIONS
+Version Actuelle : 1.0.0 ✅
+Pipeline complet fonctionnel en batch vers SQLite.
+
+🤝 CONTRIBUTION
+Les contributions sont les bienvenues.
+
+📄 LICENCE
+Ce projet est développé dans un cadre académique et professionnel. Droits réservés.
+
+👨💻 AUTEUR
+KAMENI TCHOUATCHEU GAETAN BRUNEL
+Ingénieur Logiciel & Data | Étudiant ESIEA
+
+📧 Email : gaetanbrunel.kamenitchouatcheu@et.esiea.fr
+🐙 GitHub : @Lkb-2905
 
 © 2026 Kameni Tchouatcheu Gaetan Brunel - Tous droits réservés
