@@ -49,6 +49,43 @@ Il illustre les compétences suivantes :
 
 ## 🏗️ ARCHITECTURE TECHNIQUE
 
+### Diagramme de Flux
+```mermaid
+graph TD
+    subgraph Client Layer
+        U[👤 Décideur Supply Chain]
+        P[DBeaver / Dashboard BI]
+        U -->|Pilotage| P
+    end
+
+    subgraph Application Layer
+        E[Extracteur API JSON]
+        T[Transformateur Pandas]
+        L[Chargeur SQLAlchemy]
+        E -->|Nettoyage| T
+        T -->|Manipulation| L
+    end
+
+    subgraph Data Sources
+        S[Terminaux Logistiques Fret]
+    end
+
+    subgraph Database Layer
+        D[(Data Warehouse<br>SQLite)]
+    end
+
+    S -->|Sources JSON| E
+    L -->|Upsert SQL| D
+    D -->|Requêtes Analytiques| P
+
+    style P fill:#4FC3F7,color:#000
+    style E fill:#4CAF50,color:#fff
+    style T fill:#4CAF50,color:#fff
+    style L fill:#4CAF50,color:#fff
+    style D fill:#FFD600,color:#000
+    style S fill:#FF5252,color:#fff
+```
+
 ### Flux de Données Détaillé
 1. **Extraction de Données** : Simule un appel d'API aux terminaux logistiques et rapatrie les relevés journaliers (`extract.py`).
 2. **Transformation des Champs** : Fusionne les tables temporelles via Python Pandas pour assurer la cohérence (`transform.py`).
