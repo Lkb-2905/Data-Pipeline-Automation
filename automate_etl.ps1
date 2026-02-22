@@ -5,7 +5,7 @@
 # =====================================================================
 
 $TaskName = "Camrail_ETL_Nightly_Batch"
-$Action = New-ScheduledTaskAction -Execute "python" -Argument "c:\Users\pc\Desktop\projet total energies\Data-Pipeline-Automation\src\main_pipeline.py" -WorkingDirectory "c:\Users\pc\Desktop\projet total energies\Data-Pipeline-Automation"
+$Action = New-ScheduledTaskAction -Execute "python" -Argument "$PSScriptRoot\src\main_pipeline.py" -WorkingDirectory "$PSScriptRoot"
 $Trigger = New-ScheduledTaskTrigger -Daily -At 2am
 $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
 
