@@ -1,5 +1,5 @@
 -- ===============================================================================
--- REQUÊTES ANALYTIQUES AVANCÉES (Pour démonstration en entretien TotalEnergies)
+-- REQUÊTES ANALYTIQUES AVANCÉES (Pour démonstration en entretien Camrail / Bolloré Logistics)
 -- ===============================================================================
 
 -- 1. Détection des sites avec une augmentation anormale d'alertes 
@@ -23,7 +23,7 @@ WHERE total_alerts > previous_day_alerts
 ORDER BY alert_increase_percentage DESC;
 
 
--- 2. Classement des Dépôts Logistiques par Fiabilité
+-- 2. Classement des Gares Logistiques par Fiabilité
 -- (Densité de Rank sur le ratio de pannes)
 SELECT 
     site_location,

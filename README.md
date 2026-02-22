@@ -40,7 +40,7 @@ Ce projet démontre la mise en œuvre d'une architecture **ETL (Extract, Transfo
 | **Gouvernance IT** | Consolidation des données dispersées vers une base relationnelle structurée. |
 | **Scalabilité** | Scripts séparés (`extract.py`, `transform.py`, `load.py`) facilitant l'ajout de nouvelles sources. |
 | **Fiabilité** | Exécution orchestrée (`main_pipeline.py`) supportant la gestion d'exceptions globale. |
-| **Business Value** | KPI calculés (Alertes de distribution, Volume par dépôt) immédiatement interprétables en SQL. |
+| **Business Value** | KPI calculés (Alertes logistiques, Volume par gare) immédiatement interprétables en SQL. |
 
 ---
 
@@ -80,7 +80,7 @@ graph TB
 
 1. **Layer: Extraction** (`extract.py`)
    * Connexion simulée au Référentiel Machines (API/JSON).
-   * Récupération des transactions journalières Carburant (ERP/CSV).
+   * Récupération des transactions journalières de Fret (ERP/CSV).
 2. **Layer: Transformation** (`transform.py`)
    * Normalisation des dates (Dates standardisées au format `datetime`).
    * Jointure (Merge) des tables de faits et de dimensions.

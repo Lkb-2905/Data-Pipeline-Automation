@@ -2,7 +2,7 @@
 ⚡ ETL-S : Supply Chain Data Pipeline
 Gestion de Crise • Continuité Logistique • Intégrité Base de Données
 
-Classification: Confidentiel (Interne TotalEnergies) | Version: 1.0.0
+Classification: Confidentiel (Interne Camrail / Bolloré Logistics) | Version: 1.0.0
 Responsable: KAMENI TCHOUATCHEU GAETAN BRUNEL
 
 🔍 Analyse BIA • 🛡️ Stratégies PCA • 🔄 Procédures PRA • 📝 Maintenance MCO
@@ -21,7 +21,7 @@ Responsable: KAMENI TCHOUATCHEU GAETAN BRUNEL
 
 ## 🚨 CONTEXTE ET ENJEUX CRITIQUES
 Ce plan définit la stratégie de résilience opérationnelle du **Pipeline ETL Automatisé (ETL-S)**.
-Ce système est le cœur nerveux de la donnée logistique quotidienne. Si l'ETL de Nuit (2h00 AM) ne se termine pas, la Direction Supply Chain commence sa journée à 8h00 avec des données de la veille (Avarie décisionnelle majeure en gestion des stocks de carburant).
+Ce système est le cœur nerveux de la donnée logistique quotidienne. Si l'ETL de Nuit (2h00 AM) ne se termine pas, la Direction Logistique Ferroviaire commence sa journée à 8h00 avec des données de la veille (Avarie décisionnelle majeure en gestion des flux de fret).
 
 **Objectifs du PCR :**
 * **Fiabilité des Flux :** S'assurer qu'un seul enregistrement erroné de l'ERP ne fasse pas crasher l'intégration entière de la nuit.
@@ -108,11 +108,11 @@ S'assurer de la solidité du pipeline ETL de nuit.
 ## 🔧 ANNEXE TECHNIQUE
 ### Contacts d'Astreinte
 * **Responsable Technique :** Kameni Tchouatcheu (Ext. 06.XX.XX.XX.XX)
-* **DBA / Architecte Data :** support-data@totalenergies.com
+* **DBA / Architecte Data :** support-data@camrail.net
 
 ### Versions Validées en Production
 * **Python :** 3.12.x
 * **Numpy :** STRICTEMENT 1.26.0 (Pour éviter conflit avec Pandas C-Headers)
 * **SQLAlchemy :** 2.0+
 
-*Ce document est la propriété de la Direction Supply & Logistique (Data Department). Dernière mise à jour : Février 2026 par G.B.K.T.*
+*Ce document est la propriété de la Direction Logistique Ferroviaire (Data Department). Dernière mise à jour : Février 2026 par G.B.K.T.*
